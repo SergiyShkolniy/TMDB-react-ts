@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
+    background-image: url("https://images.wallpaperscraft.ru/image/single/poligon_treugolniki_geometricheskij_128478_1920x1080.jpg");
+}
+
+:root {
+    --colorText: #1C2833;
+    --colorBG: #F4F6F7;
+    --darkBlue: #0d253f;
+    --lightBlue: #01b4e4;
+    --lightGreen: #90cea1;
+
+
+}
+
+#main[data-theme="dark"]{
+    background-color: var(--darkBlue);
+    color: white;
+    --boxShadow-horizont: rgba(187, 187, 187, 0.37) 2px 2px 15px;
+}
+#main[data-theme="dark"] a{
+    color: white;
+}
+#main[data-theme="dark"] a:hover{
+    color: var(--lightBlue);
+}
+#main[data-theme="light"]{
+    background-color: var(--colorBG);
+    color: var(--colorText);
+    --boxShadow-horizont: rgba(0, 0, 0, 0.15) 2px 2px 3px;
 }

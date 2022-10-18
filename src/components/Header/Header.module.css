@@ -1,0 +1,85 @@
+.wrapper {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    color: #fff;
+    background-image: url("https://images.wallpaperscraft.ru/image/single/poligon_treugolniki_geometricheskij_128478_1920x1080.jpg");
+}
+
+.container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    text-shadow: 1px 1px 1px black;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerLeft {
+    width: 40%;
+}
+
+.logo {
+    width: 180px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+}
+
+.menu a:hover {
+    color: var(--lightBlue);
+}
+
+.menu a[class='active'] {
+    color: var(--lightBlue);
+}
+
+.headerRight {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.darkAndLight {
+    cursor: pointer;
+}
+
+.darkAndLight:hover {
+    color: var(--lightBlue);
+}
+
+.avatar {
+    height: 45px;
+    width: 45px;
+}
+
+.avatarInfo {
+    margin-left: 10px;
+}
+
+.avatarSubTitle {
+    font-size: 12px;
+}
+
+.leftMenuUnderline {
+    width: 10px;
+    height: 15px;
+    margin: 0 -10px 0 -15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
