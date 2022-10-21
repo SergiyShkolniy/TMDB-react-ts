@@ -33,11 +33,12 @@ body {
 #main[data-theme="dark"] a{
     color: white;
 }
-#main[data-theme="dark"] a:hover{
-    color: var(--lightBlue);
-}
+/*#main[data-theme="dark"] a:hover{*/
+/*    color: var(--lightBlue);*/
+/*}*/
 #main[data-theme="light"]{
     background-color: var(--colorBG);
-    color: var(--colorText);
+    color: black;
     --boxShadow-horizont: rgba(0, 0, 0, 0.15) 2px 2px 3px;
 }
+

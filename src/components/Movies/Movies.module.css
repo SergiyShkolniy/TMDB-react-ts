@@ -1,0 +1,44 @@
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.button {
+    padding: 7px 25px;
+    cursor: pointer;
+    background-color: var(--lightBlue);
+    color: white;
+    border: none;
+    border-radius: 0 7px 0 7px;
+    box-shadow: 1px 1px 2px black;
+    text-shadow: 1px 1px black;
+    text-transform: uppercase;
+}
+
+.buttonFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    margin: 15px 0;
+    column-gap: 25px;
+}
+
+.page {
+    padding: 0 15px;
+}
+.pagesBlock {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 25px;
+    margin: 0 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 2px black;
+    text-shadow: 1px 1px black;
+    background-color: var(--lightGreen);
+    color: white;
+}

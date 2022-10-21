@@ -51,7 +51,7 @@
 .headerRight {
     width: 40%;
     display: flex;
-    justify-content: end;
+    justify-content:right;
     align-items: center;
     column-gap: 30px;
 }

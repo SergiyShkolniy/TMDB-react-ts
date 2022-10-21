@@ -1,0 +1,25 @@
+.menu {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    color: var(--lightBlue);
+}
+
+.menu a[class='active'] {
+    color: var(--lightBlue);
+}
+
+.leftMenuUnderline {
+    width: 10px;
+    height: 15px;
+    margin: 0 -10px 0 -15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
