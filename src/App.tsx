@@ -7,6 +7,8 @@ import {MoviesPopularPage} from "./pages/MoviesPopularPage/MoviesPopularPage";
 import {MoviesUpcomingPage} from "./pages/MoviesUpcomingPage/MoviesUpcomingPage";
 import {MoviesTopRatedPage} from "./pages/MoviesTopRatedPage/MoviesTopRatedPage";
 import {MovieDetailsPage} from "./pages/MovieDetailsPage/MovieDetailsPage";
+import {MoviesByGenrePage} from "./pages/MoviesByGenrePage/MoviesByGenrePage";
+import {MoviesBySearchPage} from "./pages/MoviesBySearchPage/MoviesBySearchPage";
 
 
 const App: FC = () => {
@@ -21,6 +23,8 @@ const App: FC = () => {
                     <Route path={'top-rated'} element={<MoviesTopRatedPage/>}/>
                 </Route>
                 <Route path={'movie/:id'} element={<MovieDetailsPage/>}/>
+                <Route path={'movie/genre/:id'} element={<MoviesByGenrePage/>}/>
+                <Route path={'search'} element={<MoviesBySearchPage/>}/>
                 <Route path={'tv'} element={<TvShowsPage/>}/>
                 <Route path={'person'} element={<PeoplePage/>}/>
 

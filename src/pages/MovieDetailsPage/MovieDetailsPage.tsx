@@ -4,12 +4,13 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
 import {urlImage} from "../../configs";
 import css from './MovieDetailsPage.module.css';
+import {Cast} from "../../components/Cast/Cast";
 
 const MovieDetailsPage: FC = () => {
 
     const {id} = useParams();
     const dispatch = useAppDispatch();
-    const {movie} = useAppSelector(state => state.movieReducer);
+    const {movie, credits} = useAppSelector(state => state.movieReducer);
 
     useEffect(() => {
         dispatch(movieActions.getDetails({id}));
@@ -52,7 +53,12 @@ const MovieDetailsPage: FC = () => {
                     <div>{movie?.overview}</div>
                 </div>
                 <div>
-
+                    <div className={css.castTitle}>
+                        <p>Cast list:</p>
+                    </div>
+                    {credits &&
+                        <div className={css.cast}>{credits.map(cast => <Cast key={cast.id} cast={cast}/>)}</div>
+                    }
                 </div>
             </div>
         </div>

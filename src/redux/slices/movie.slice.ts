@@ -11,6 +11,7 @@ interface IState {
     movie: IMovieDetails | null;
     credits: ICast[];
     genres: IGenre[];
+    search: IMovie[];
     page: number;
     total_pages: number;
 }
@@ -20,6 +21,7 @@ const initialState: IState = {
     movie: null,
     credits: [],
     genres: [],
+    search: [],
     page: 1,
     total_pages: 500,
 
@@ -63,11 +65,37 @@ const getCredits = createAsyncThunk<IMovieCredits, { id: string | undefined }>(
     }
 );
 
+const getMoviesByGenre = createAsyncThunk<IMovieResponse, { pageTotal: number, id: string | undefined }>(
+    'movieSlice/getMoviesByGenre',
+    async ({pageTotal, id}, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getByGenreId(id,pageTotal);
+            return data;
+        } catch (e) {
+            const err = e as AxiosError;
+            return rejectWithValue(err.response?.data);
+        }
+    }
+);
+
 const getGenres = createAsyncThunk<IGenreResponse, void>(
     'movieSlice/getGenres',
     async (_, {rejectWithValue}) => {
         try {
             const {data} = await movieService.getGenres();
+            return data;
+        } catch (e) {
+            const err = e as AxiosError;
+            return rejectWithValue(err.response?.data);
+        }
+    }
+);
+
+const getBySearchMovie = createAsyncThunk<IMovieResponse, { search: string }>(
+    'movieSlice/getBySearchMovie',
+    async ({search}, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getBySearchMovie(search);
             return data;
         } catch (e) {
             const err = e as AxiosError;
@@ -92,10 +120,18 @@ const movieSlice = createSlice({
                 state.movie = action.payload;
             })
             .addCase(getCredits.fulfilled, (state, action) => {
-                state.credits = action.payload.cast
+                state.credits = action.payload.cast.slice(0, 14);
+            })
+            .addCase(getMoviesByGenre.fulfilled, (state, action) => {
+                state.movies = action.payload.results;
+                state.page = action.payload.page;
             })
             .addCase(getGenres.fulfilled, (state, action) => {
                 state.genres = action.payload.genres;
+            })
+            .addCase(getBySearchMovie.fulfilled, (state, action) => {
+                state.search = action.payload.results;
+                state.page = action.payload.page;
             })
 
 });
@@ -106,7 +142,9 @@ const movieActions = {
     getAll,
     getDetails,
     getCredits,
-    getGenres
+    getMoviesByGenre,
+    getGenres,
+    getBySearchMovie
 };
 
 export {

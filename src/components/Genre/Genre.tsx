@@ -11,7 +11,7 @@ const Genre: FC<IProps> = ({genre}) => {
 
     return (
         <div className={css.genre}>
-            <NavLink to={`${genre.id}`}>{genre.name}</NavLink>
+            <NavLink to={`/movie/genre/${genre.id}`}>{genre.name}</NavLink>
         </div>
     );
 };
