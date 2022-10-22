@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -25,20 +26,35 @@ body {
 
 }
 
-#main[data-theme="dark"]{
+#main[data-theme="dark"] {
     background-color: var(--darkBlue);
     color: white;
     --boxShadow-horizont: rgba(187, 187, 187, 0.37) 2px 2px 15px;
 }
-#main[data-theme="dark"] a{
+
+#main[data-theme="dark"] a {
     color: white;
 }
+
 /*#main[data-theme="dark"] a:hover{*/
 /*    color: var(--lightBlue);*/
 /*}*/
-#main[data-theme="light"]{
+#main[data-theme="light"] {
     background-color: var(--colorBG);
     color: black;
     --boxShadow-horizont: rgba(0, 0, 0, 0.15) 2px 2px 3px;
 }
-
+.Dropdown-root {
+    width: 200px!important;
+}
+.Dropdown-placeholder{
+    margin: -2px!important;
+}
+.Dropdown-control{
+    border-radius: 5px!important;
+    cursor: pointer!important;
+    border: 1px solid var(--lightBlue) !important;
+}
+.Dropdown-menu{
+    border-radius: 5px!important;
+}

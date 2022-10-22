@@ -4,7 +4,6 @@ import {movieActions} from "../../redux";
 import {Genre} from "../Genre/Genre";
 import css from './Genres.module.css';
 
-
 const Genres: FC = () => {
 
     const {genres} = useAppSelector(state => state.movieReducer);

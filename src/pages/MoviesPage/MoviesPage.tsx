@@ -52,7 +52,7 @@ const MoviesPage: FC = () => {
             {/*    <input className={css.inputSearch} type="text"*/}
             {/*           placeholder="Search your interesting... " {...register('search')}/>*/}
             {/*</form>*/}
-            <Genres/>
+            {/*<Genres/>*/}
             <Movies/>
             {/*<div><Outlet/></div>*/}
         </div>

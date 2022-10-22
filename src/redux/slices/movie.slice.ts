@@ -95,6 +95,7 @@ const getBySearchMovie = createAsyncThunk<IMovieResponse, { search: string}>(
     'movieSlice/getBySearchMovie',
     async ({search}, {rejectWithValue}) => {
         try {
+            console.log(search)
             const {data} = await movieService.getBySearchMovie(search);
             return data;
         } catch (e) {

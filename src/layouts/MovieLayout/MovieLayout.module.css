@@ -31,8 +31,8 @@
 
 .flex {
     width: 90%;
-    margin: 10px 0;
-    padding: 10px 50px;
+    margin: 20px 0;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid var(--lightBlue);
@@ -45,6 +45,7 @@
     border: 1px solid var(--lightBlue);
     padding: 7px 35px;
     cursor: pointer;
+    font-family: inherit;
 }
 
 .inputSearch:focus {
@@ -57,12 +58,29 @@
     flex-direction: column;
     align-items: center;
 }
+
 .search {
     width: 20px;
     position: absolute;
     top: 0;
     left: 10px;
 }
+
 .form {
     position: relative;
+}
+
+
+.Dropdown-root {
+    width: 200px;
+}
+
+.Dropdown-placeholder {
+    margin: -2px;
+}
+
+.Dropdown-control {
+    border-radius: 5px!important;
+    cursor: pointer!important;
+    border: 1px solid var(--lightBlue)!important;
 }
