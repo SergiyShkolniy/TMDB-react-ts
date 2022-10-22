@@ -91,7 +91,7 @@ const getGenres = createAsyncThunk<IGenreResponse, void>(
     }
 );
 
-const getBySearchMovie = createAsyncThunk<IMovieResponse, { search: string }>(
+const getBySearchMovie = createAsyncThunk<IMovieResponse, { search: string}>(
     'movieSlice/getBySearchMovie',
     async ({search}, {rejectWithValue}) => {
         try {

@@ -9,6 +9,7 @@ import {MoviesTopRatedPage} from "./pages/MoviesTopRatedPage/MoviesTopRatedPage"
 import {MovieDetailsPage} from "./pages/MovieDetailsPage/MovieDetailsPage";
 import {MoviesByGenrePage} from "./pages/MoviesByGenrePage/MoviesByGenrePage";
 import {MoviesBySearchPage} from "./pages/MoviesBySearchPage/MoviesBySearchPage";
+import {MovieLayout} from "./layouts/MovieLayout/MovieLayout";
 
 
 const App: FC = () => {
@@ -17,13 +18,16 @@ const App: FC = () => {
             <Route path={'/'} element={<MainLayout/>}>
                 <Route index element={<Navigate to={'movie'}/>}/>
 
-                <Route path={'movie'} element={<MoviesPage/>}>
-                    <Route path={'popular'} element={<MoviesPopularPage/>}/>
-                    <Route path={'upcoming'} element={<MoviesUpcomingPage/>}/>
-                    <Route path={'top-rated'} element={<MoviesTopRatedPage/>}/>
+                <Route path={'movie'} element={<MovieLayout/>}>
+                    <Route index element={<Navigate to={'all'}/>}/>
+                        <Route path={'all'} element={<MoviesPage/>}/>
+                        <Route path={'popular'} element={<MoviesPopularPage/>}/>
+                        <Route path={'upcoming'} element={<MoviesUpcomingPage/>}/>
+                        <Route path={'top-rated'} element={<MoviesTopRatedPage/>}/>
+                        <Route path={'genre/:id'} element={<MoviesByGenrePage/>}/>
                 </Route>
                 <Route path={'movie/:id'} element={<MovieDetailsPage/>}/>
-                <Route path={'movie/genre/:id'} element={<MoviesByGenrePage/>}/>
+
                 <Route path={'search'} element={<MoviesBySearchPage/>}/>
                 <Route path={'tv'} element={<TvShowsPage/>}/>
                 <Route path={'person'} element={<PeoplePage/>}/>

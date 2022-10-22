@@ -15,8 +15,8 @@ const movieService = {
     getByGenreId: (id: string | undefined, page: number): AxiosRes<IMovieResponse> =>
         axiosService.get(urls.movies, {params: {with_genres: id, page}}),
 
-    getBySearchMovie: (search: string): AxiosRes<IMovieResponse> =>
-        axiosService.get(urls.searchMovie, {params: {search}}),
+    getBySearchMovie: (query: string): AxiosRes<IMovieResponse> =>
+        axiosService.get(urls.searchMovie, {params: {query}}),
 };
 
 
