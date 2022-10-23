@@ -1,20 +1,19 @@
 import React, {FC, useEffect, useState} from 'react';
-import {useAppDispatch, useAppSelector} from "../../hooks";
 
 import css from "../../components/Movies/Movies.module.css";
-
-import {People} from "../../components/People/People";
-
-import {peopleActions} from "../../redux/slices/people.slice";
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {People} from "../../components";
+import {peopleActions} from "../../redux";
 
 const PeoplePage: FC = () => {
+
     const {peoples, page, total_pages} = useAppSelector(state => state.peopleReducer);
     const dispatch = useAppDispatch();
 
     const [pageTotal, setPageTotal] = useState(1);
 
     useEffect(() => {
-        dispatch(peopleActions.getAll({pageTotal}))
+        dispatch(peopleActions.getAll({pageTotal}));
     }, [pageTotal, dispatch]);
 
     const forward = () => {

@@ -32,8 +32,8 @@ const Header: FC = () => {
                     </div>
                 </div>
                 <div className={css.headerRight}>
-                    <div>{theme==='light'? <p onClick={darkClick} className={css.darkAndLight}>Dark theme</p> :
-                        <p onClick={lightClick} className={css.darkAndLight}>Light theme</p> }
+                    <div>{theme === 'light' ? <p onClick={darkClick} className={css.darkAndLight}>Dark theme</p> :
+                        <p onClick={lightClick} className={css.darkAndLight}>Light theme</p>}
                     </div>
                     <div className={css.leftMenuUnderline}></div>
                     <div className={css.flex}>

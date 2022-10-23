@@ -1,16 +1,12 @@
-import React, {FC, useEffect} from 'react';
-import { useAppSelector} from "../../hooks";
-import css from './MoviesBySearchPage.module.css';
-import {Movie} from "../../components";
+import React, {FC} from 'react';
 
+import css from './MoviesBySearchPage.module.css';
+import { useAppSelector} from "../../hooks";
+import {Movie} from "../../components";
 
 const MoviesBySearchPage: FC = () => {
 
     const {search} = useAppSelector(state => state.movieReducer);
-    useEffect(()=>{
-        console.log(search)
-    },[])
-
 
     return (
         <>

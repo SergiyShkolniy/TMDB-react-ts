@@ -1,13 +1,8 @@
+import {AxiosError} from "axios";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-
-import {movieService} from "../../services";
-import {AxiosError} from "axios";
-import {IMovieDetails} from "../../interfaces/movieDetails.interface";
-
-import {IPeople, IPeopleResponse} from "../../interfaces/people.interface";
-import {peopleService} from "../../services/people.service";
-import {IPeopleDetails} from "../../interfaces/peopleDetails.intervace";
+import {IPeople, IPeopleDetails, IPeopleResponse} from "../../interfaces";
+import {peopleService} from "../../services";
 
 interface IState {
     peoples: IPeople[];
@@ -49,7 +44,6 @@ const getDetails = createAsyncThunk<IPeopleDetails, { id: string | undefined }>(
         }
     }
 );
-
 
 const peopleSlice = createSlice({
     name: 'peopleSlice',

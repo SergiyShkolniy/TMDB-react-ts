@@ -1,7 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
+
+import css from "../../components/Movies/Movies.module.css";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
-import css from "../../components/Movies/Movies.module.css";
 import {Movie} from "../../components";
 
 const MoviesNowPage: FC = () => {
@@ -12,7 +13,7 @@ const MoviesNowPage: FC = () => {
     const [pageTotal, setPageTotal] = useState(1);
 
     useEffect(() => {
-        dispatch(movieActions.getNow({pageTotal}))
+        dispatch(movieActions.getNow({pageTotal}));
     }, [pageTotal, dispatch]);
 
     const forward = () => {
@@ -25,7 +26,6 @@ const MoviesNowPage: FC = () => {
         if (page > 1) {
             setPageTotal(page - 1);
         }
-
     };
 
     return (

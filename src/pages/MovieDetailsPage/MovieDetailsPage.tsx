@@ -1,10 +1,11 @@
 import React, {FC, useEffect} from 'react';
 import {useParams} from "react-router-dom";
+
+import css from './MovieDetailsPage.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
 import {urlImage} from "../../configs";
-import css from './MovieDetailsPage.module.css';
-import {Cast} from "../../components/Cast/Cast";
+import {Cast} from "../../components";
 
 const MovieDetailsPage: FC = () => {
 

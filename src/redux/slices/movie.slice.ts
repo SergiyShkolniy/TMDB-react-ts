@@ -1,10 +1,8 @@
+import {AxiosError} from "axios";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import {IGenre, IGenreResponse, IMovie, IMovieResponse} from "../../interfaces";
+import {ICast, IGenre, IGenreResponse, IMovie, IMovieCredits, IMovieDetails, IMovieResponse} from "../../interfaces";
 import {movieService} from "../../services";
-import {AxiosError} from "axios";
-import {IMovieDetails} from "../../interfaces/movieDetails.interface";
-import {ICast, IMovieCredits} from "../../interfaces/movieCredits.interface";
 
 interface IState {
     movies: IMovie[];
@@ -105,7 +103,7 @@ const getMoviesByGenre = createAsyncThunk<IMovieResponse, { pageTotal: number, i
     'movieSlice/getMoviesByGenre',
     async ({pageTotal, id}, {rejectWithValue}) => {
         try {
-            const {data} = await movieService.getByGenreId(id,pageTotal);
+            const {data} = await movieService.getByGenreId(id, pageTotal);
             return data;
         } catch (e) {
             const err = e as AxiosError;
@@ -127,7 +125,7 @@ const getGenres = createAsyncThunk<IGenreResponse, void>(
     }
 );
 
-const getBySearchMovie = createAsyncThunk<IMovieResponse, { search: string}>(
+const getBySearchMovie = createAsyncThunk<IMovieResponse, { search: string }>(
     'movieSlice/getBySearchMovie',
     async ({search}, {rejectWithValue}) => {
         try {

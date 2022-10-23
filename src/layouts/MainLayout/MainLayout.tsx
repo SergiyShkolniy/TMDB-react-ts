@@ -4,6 +4,7 @@ import css from './MainLayout.module.css';
 import {Footer, Header, Main} from "../../components";
 
 const MainLayout: FC = () => {
+
     return (
         <div className={css.wrapper}>
             <div><Header/></div>

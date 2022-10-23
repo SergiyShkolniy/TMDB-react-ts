@@ -1,12 +1,13 @@
 import React, {FC, useEffect} from 'react';
 import {useParams} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../hooks";
 
-import {peopleActions} from "../../redux/slices/people.slice";
-import {urlImage} from "../../configs";
 import css from './PeopleDetails.module.css';
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {peopleActions} from "../../redux";
+import {urlImage} from "../../configs";
 
 const PeopleDetailsPage: FC = () => {
+
     const {id} = useParams();
     const dispatch = useAppDispatch();
 
@@ -15,7 +16,6 @@ const PeopleDetailsPage: FC = () => {
     useEffect(() => {
         dispatch(peopleActions.getDetails({id}));
     }, [dispatch, id]);
-
 
     return (
         <div className={css.flex}>

@@ -1,24 +1,22 @@
 import React, {FC, useEffect, useState} from 'react';
 import Dropdown, {Option} from 'react-dropdown';
 import 'react-dropdown/style.css';
-
-import {Link, NavLink, Outlet, useNavigate} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import {NavLink, Outlet, useNavigate} from "react-router-dom";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {movieActions} from "../../redux";
-import {ReactComponent as Search} from '../../accest/icon/search.svg';
-
 
 import css from './MovieLayout.module.css';
 import '../../index.css'
-
+import {useAppDispatch, useAppSelector} from "../../hooks";
+import {movieActions} from "../../redux";
+import {ReactComponent as Search} from '../../accest/icon/search.svg';
 
 interface ISearch {
     search: string;
 }
 
 const MovieLayout: FC = () => {
-    const {genres} = useAppSelector(state => state.movieReducer)
+
+    const {genres} = useAppSelector(state => state.movieReducer);
     const [search, setSearch] = useState('');
 
     const navigate = useNavigate();
@@ -29,7 +27,7 @@ const MovieLayout: FC = () => {
     const onSubmit: SubmitHandler<ISearch> = (search) => {
         if (search.search !== '') {
             setSearch(search.search);
-            reset()
+            reset();
         }
     }
     useEffect(() => {
@@ -38,8 +36,7 @@ const MovieLayout: FC = () => {
             navigate('/search');
         }
 
-    }, [search, dispatch, navigate])
-
+    }, [search, dispatch, navigate]);
 
     const linkGenre = useNavigate()
 
@@ -51,8 +48,6 @@ const MovieLayout: FC = () => {
                 linkGenre(`/movie/genre/${value.id}`)
             }
         })
-        // if (option.label === )
-        // linkGenre(`/movie/genre/${id}`)
     }
 
     return (
@@ -68,7 +63,9 @@ const MovieLayout: FC = () => {
                     <NavLink to={'top-rated'}>Top Rated</NavLink>
                 </div>
                 <div>
-                    <Dropdown className={'Dropdown-root'} controlClassName={'Dropdown-control'} placeholderClassName={'Dropdown-placeholder'} menuClassName={'Dropdown-menu'} options={genresList} onChange={linkGenres} placeholder="Genres"/>
+                    <Dropdown className={'Dropdown-root'} controlClassName={'Dropdown-control'}
+                              placeholderClassName={'Dropdown-placeholder'} menuClassName={'Dropdown-menu'}
+                              options={genresList} onChange={linkGenres} placeholder="Genres"/>
                 </div>
                 <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
                     <input className={css.inputSearch} type="text"

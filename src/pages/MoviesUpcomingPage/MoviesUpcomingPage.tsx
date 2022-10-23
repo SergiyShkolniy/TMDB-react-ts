@@ -1,7 +1,8 @@
 import React, {FC, useEffect, useState} from 'react';
+
+import css from "../../components/Movies/Movies.module.css";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
-import css from "../../components/Movies/Movies.module.css";
 import {Movie} from "../../components";
 
 const MoviesUpcomingPage: FC = () => {
@@ -12,7 +13,7 @@ const MoviesUpcomingPage: FC = () => {
     const [pageTotal, setPageTotal] = useState(1);
 
     useEffect(() => {
-        dispatch(movieActions.getUpcoming({pageTotal}))
+        dispatch(movieActions.getUpcoming({pageTotal}));
     }, [pageTotal, dispatch]);
 
     const forward = () => {

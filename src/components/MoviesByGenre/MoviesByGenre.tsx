@@ -1,11 +1,13 @@
 import React, {FC, useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
+
+import css from "../Movies/Movies.module.css";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieActions} from "../../redux";
-import css from "../Movies/Movies.module.css";
 import {Movie} from "../Movie/Movie";
 
 const MoviesByGenre: FC = () => {
+
     const {id} = useParams();
     const {movies, page, total_pages} = useAppSelector(state => state.movieReducer);
     const dispatch = useAppDispatch();
@@ -13,7 +15,7 @@ const MoviesByGenre: FC = () => {
     const [pageTotal, setPageTotal] = useState(1);
 
     useEffect(() => {
-        dispatch(movieActions.getMoviesByGenre({pageTotal, id}))
+        dispatch(movieActions.getMoviesByGenre({pageTotal, id}));
     }, [pageTotal, dispatch, id]);
 
     const forward = () => {

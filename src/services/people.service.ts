@@ -1,8 +1,6 @@
 import {AxiosRes, axiosService} from "./axios.service";
 import {urls} from "../configs";
-import {IPeopleResponse} from "../interfaces/people.interface";
-
-import {IPeopleDetails} from "../interfaces/peopleDetails.intervace";
+import {IPeopleDetails, IPeopleResponse} from "../interfaces";
 
 
 const peopleService = {

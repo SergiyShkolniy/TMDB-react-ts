@@ -1,10 +1,8 @@
 import {AxiosRes, axiosService} from "./axios.service";
-
 import {urls} from "../configs";
+import {IGenreResponse, IMovieCredits, IMovieResponse} from "../interfaces";
+import {IMovieDetails} from "../interfaces";
 
-import {IGenreResponse, IMovieResponse} from "../interfaces";
-import {IMovieDetails} from "../interfaces/movieDetails.interface";
-import {IMovieCredits} from "../interfaces/movieCredits.interface";
 
 const movieService = {
     getAll: (page: number): AxiosRes<IMovieResponse> => axiosService.get(urls.movies, {params: {page}}),
