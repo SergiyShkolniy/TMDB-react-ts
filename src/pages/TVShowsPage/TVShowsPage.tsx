@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
+import '../../index.css'
 
-const TvShowsPage: FC = () => {
+const TvShowsPage:FC = () => {
     return (
-        <div>
-            TvShowsPage
+        <div className={'center'}>
+            <div>to be continued . . .</div>
         </div>
     );
 };

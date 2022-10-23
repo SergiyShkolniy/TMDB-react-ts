@@ -10,6 +10,8 @@ import {MovieDetailsPage} from "./pages/MovieDetailsPage/MovieDetailsPage";
 import {MoviesByGenrePage} from "./pages/MoviesByGenrePage/MoviesByGenrePage";
 import {MoviesBySearchPage} from "./pages/MoviesBySearchPage/MoviesBySearchPage";
 import {MovieLayout} from "./layouts/MovieLayout/MovieLayout";
+import {PeopleDetailsPage} from "./pages/PeopleDetailsPage/PeopleDetailsPage";
+
 
 
 const App: FC = () => {
@@ -28,9 +30,12 @@ const App: FC = () => {
                 </Route>
                 <Route path={'movie/:id'} element={<MovieDetailsPage/>}/>
 
+                <Route path={'/tv'} element={<TvShowsPage/>}/>
+                <Route path={'people'} element={<PeoplePage/>}/>
+                <Route path={'people/:id'} element={<PeopleDetailsPage/>}/>
                 <Route path={'search'} element={<MoviesBySearchPage/>}/>
-                <Route path={'tv'} element={<TvShowsPage/>}/>
-                <Route path={'person'} element={<PeoplePage/>}/>
+
+
 
             </Route>
 

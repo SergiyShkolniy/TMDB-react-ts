@@ -28,7 +28,7 @@ const Header: FC = () => {
                         <div className={css.leftMenuUnderline}></div>
                         <NavLink to={'tv'}>TV Shows</NavLink>
                         <div className={css.leftMenuUnderline}></div>
-                        <NavLink to={'person'}>People</NavLink>
+                        <NavLink to={'people'}>People</NavLink>
                     </div>
                 </div>
                 <div className={css.headerRight}>
