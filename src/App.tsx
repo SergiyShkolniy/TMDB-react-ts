@@ -3,7 +3,7 @@ import {Navigate, Route, Routes} from "react-router-dom";
 
 import {MainLayout} from "./layouts";
 import {MoviesPage, PeoplePage, TvShowsPage} from "./pages";
-import {MoviesPopularPage} from "./pages/MoviesPopularPage/MoviesPopularPage";
+import {MoviesNowPage} from "./pages/MoviesNowPage/MoviesNowPage";
 import {MoviesUpcomingPage} from "./pages/MoviesUpcomingPage/MoviesUpcomingPage";
 import {MoviesTopRatedPage} from "./pages/MoviesTopRatedPage/MoviesTopRatedPage";
 import {MovieDetailsPage} from "./pages/MovieDetailsPage/MovieDetailsPage";
@@ -21,7 +21,7 @@ const App: FC = () => {
                 <Route path={'movie'} element={<MovieLayout/>}>
                     <Route index element={<Navigate to={'all'}/>}/>
                         <Route path={'all'} element={<MoviesPage/>}/>
-                        <Route path={'popular'} element={<MoviesPopularPage/>}/>
+                        <Route path={'now'} element={<MoviesNowPage/>}/>
                         <Route path={'upcoming'} element={<MoviesUpcomingPage/>}/>
                         <Route path={'top-rated'} element={<MoviesTopRatedPage/>}/>
                         <Route path={'genre/:id'} element={<MoviesByGenrePage/>}/>

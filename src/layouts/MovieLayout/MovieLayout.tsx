@@ -61,7 +61,7 @@ const MovieLayout: FC = () => {
                 <div className={css.menu}>
                     <NavLink to={'all'}>All</NavLink>
                     <div className={css.leftMenuUnderline}></div>
-                    <NavLink to={'popular'}>Popular</NavLink>
+                    <NavLink to={'now'}>Now</NavLink>
                     <div className={css.leftMenuUnderline}></div>
                     <NavLink to={'upcoming'}>Upcoming</NavLink>
                     <div className={css.leftMenuUnderline}></div>

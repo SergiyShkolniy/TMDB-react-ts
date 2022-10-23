@@ -39,6 +39,42 @@ const getAll = createAsyncThunk<IMovieResponse, { pageTotal: number }>(
         }
     }
 );
+const getNow = createAsyncThunk<IMovieResponse, { pageTotal: number }>(
+    'movieSlice/getNow',
+    async ({pageTotal}, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getMovieNow(pageTotal);
+            return data;
+        } catch (e) {
+            const err = e as AxiosError;
+            return rejectWithValue(err.response?.data);
+        }
+    }
+);
+const getUpcoming = createAsyncThunk<IMovieResponse, { pageTotal: number }>(
+    'movieSlice/getUpcoming',
+    async ({pageTotal}, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getMovieUpcoming(pageTotal);
+            return data;
+        } catch (e) {
+            const err = e as AxiosError;
+            return rejectWithValue(err.response?.data);
+        }
+    }
+);
+const getTop = createAsyncThunk<IMovieResponse, { pageTotal: number }>(
+    'movieSlice/getTop',
+    async ({pageTotal}, {rejectWithValue}) => {
+        try {
+            const {data} = await movieService.getMovieTop(pageTotal);
+            return data;
+        } catch (e) {
+            const err = e as AxiosError;
+            return rejectWithValue(err.response?.data);
+        }
+    }
+);
 const getDetails = createAsyncThunk<IMovieDetails, { id: string | undefined }>(
     'movieSlice/getDetails',
     async ({id}, {rejectWithValue}) => {
@@ -117,6 +153,18 @@ const movieSlice = createSlice({
                 state.movies = action.payload.results;
                 state.page = action.payload.page;
             })
+            .addCase(getNow.fulfilled, (state, action) => {
+                state.movies = action.payload.results;
+                state.page = action.payload.page;
+            })
+            .addCase(getUpcoming.fulfilled, (state, action) => {
+                state.movies = action.payload.results;
+                state.page = action.payload.page;
+            })
+            .addCase(getTop.fulfilled, (state, action) => {
+                state.movies = action.payload.results;
+                state.page = action.payload.page;
+            })
             .addCase(getDetails.fulfilled, (state, action) => {
                 state.movie = action.payload;
             })
@@ -141,6 +189,9 @@ const {reducer: movieReducer} = movieSlice;
 
 const movieActions = {
     getAll,
+    getNow,
+    getUpcoming,
+    getTop,
     getDetails,
     getCredits,
     getMoviesByGenre,

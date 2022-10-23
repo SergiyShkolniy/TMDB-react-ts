@@ -4,7 +4,7 @@ import {movieActions} from "../../redux";
 import css from "../../components/Movies/Movies.module.css";
 import {Movie} from "../../components";
 
-const MoviesUpcomingPage: FC = () => {
+const MoviesNowPage: FC = () => {
 
     const {movies, page, total_pages} = useAppSelector(state => state.movieReducer);
     const dispatch = useAppDispatch();
@@ -12,7 +12,7 @@ const MoviesUpcomingPage: FC = () => {
     const [pageTotal, setPageTotal] = useState(1);
 
     useEffect(() => {
-        dispatch(movieActions.getUpcoming({pageTotal}))
+        dispatch(movieActions.getNow({pageTotal}))
     }, [pageTotal, dispatch]);
 
     const forward = () => {
@@ -27,6 +27,7 @@ const MoviesUpcomingPage: FC = () => {
         }
 
     };
+
     return (
         <>
             {movies &&
@@ -47,4 +48,4 @@ const MoviesUpcomingPage: FC = () => {
     );
 };
 
-export {MoviesUpcomingPage};
+export {MoviesNowPage};
