@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 import css from './MovieDetailsPage.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
@@ -10,6 +10,7 @@ import {Cast} from "../../components";
 const MovieDetailsPage: FC = () => {
 
     const {id} = useParams();
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const {movie, credits} = useAppSelector(state => state.movieReducer);
 
@@ -18,9 +19,14 @@ const MovieDetailsPage: FC = () => {
         dispatch(movieActions.getCredits({id}));
     }, [dispatch, id]);
 
+    const linkBack = () => {
+        navigate(-1)
+    };
+
     return (
         <div>
             <div className={css.backdrop}>
+                <button className={css.back} onClick={linkBack}>back</button>
                 <img src={`${urlImage}${movie?.backdrop_path}`} alt={movie?.title}/>
                 <div className={css.title}>{movie?.title}</div>
             </div>

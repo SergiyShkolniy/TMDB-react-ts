@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 import css from './PeopleDetails.module.css';
 import {useAppDispatch, useAppSelector} from "../../hooks";
@@ -9,6 +9,7 @@ import {urlImage} from "../../configs";
 const PeopleDetailsPage: FC = () => {
 
     const {id} = useParams();
+    const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
     const {people} = useAppSelector(state => state.peopleReducer);
@@ -17,9 +18,14 @@ const PeopleDetailsPage: FC = () => {
         dispatch(peopleActions.getDetails({id}));
     }, [dispatch, id]);
 
+    const linkBack = () => {
+        navigate(-1)
+    };
+
     return (
         <div className={css.flex}>
             <div>
+                <button className={css.back} onClick={linkBack}>back</button>
                 <img src={`${urlImage}${people?.profile_path}`} alt={people?.name}/>
             </div>
             <div className={css.peopleInfo}>
